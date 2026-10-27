@@ -20,7 +20,7 @@ namespace MediateurMaisonIntelligente.Composants
 
             MouvementEstDetecte = true;
             Console.WriteLine($"[{Nom}] détecte du mouvement.");
-            this._mediateur.Notifier(this, "MouvEstDetecte");
+            NotifierMediateur("MouvEstDetecte");
         }
     }
 }

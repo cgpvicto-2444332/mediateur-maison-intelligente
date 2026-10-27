@@ -23,9 +23,9 @@ namespace MediateurMaisonIntelligente.Mediateur
             this._cameraSecurite.SetMediateur(this);
         }
 
-        public void Notifier(object sender, string ev)
+        public void Notifier(Appareil expediteur, string evenement)
         {
-            if (ev == "MouvEstDetecte")
+            if (evenement == "MouvEstDetecte")
             {
                 Console.WriteLine("Le médiateur reçoit le signal du détecteur et allume l'ampoule");
                 _ampoule.Allumer();

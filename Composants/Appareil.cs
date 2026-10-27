@@ -18,6 +18,11 @@ namespace MediateurMaisonIntelligente.Composants
             this._mediateur = mediateur;
         }
 
+        protected void NotifierMediateur(string evenement)
+        {
+            _mediateur.Notifier(this, evenement);
+        }
+
         public void SetMediateur(IMediateurDomotique mediateur)
         {
             this._mediateur = mediateur;
