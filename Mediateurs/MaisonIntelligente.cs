@@ -6,7 +6,7 @@ using System.Text;
 namespace MediateurMaisonIntelligente.Mediateur
 {
     /// <summary>
-    /// 
+    /// Coordonne les différents appareils domotiques.
     /// </summary>
     internal class MaisonIntelligente : IMediateurDomotique
     {
@@ -15,11 +15,11 @@ namespace MediateurMaisonIntelligente.Mediateur
         private CameraSecurite _cameraSecurite;
 
         /// <summary>
-        /// 
+        /// Crée la maison et se branche comme médiateur de chaque appareil.
         /// </summary>
-        /// <param name="ampoule"></param>
-        /// <param name="detecteurMouvement"></param>
-        /// <param name="cameraSecurite"></param>
+        /// <param name="ampoule">L'ampoule de la maison.</param>
+        /// <param name="detecteurMouvement">Le détecteur de mouvement de la maison.</param>
+        /// <param name="cameraSecurite">La caméra de sécurité de la maison.</param>
         public MaisonIntelligente(AmpouleIntelligente ampoule, DetecteurMouvement detecteurMouvement, CameraSecurite cameraSecurite)
         {
             this._ampoule = ampoule;
@@ -33,10 +33,10 @@ namespace MediateurMaisonIntelligente.Mediateur
         }
 
         /// <summary>
-        /// 
+        /// Si un mouvement est détecté, allume l'ampoule et démarre la caméra.
         /// </summary>
-        /// <param name="expediteur"></param>
-        /// <param name="evenement"></param>
+        /// <param name="expediteur">L'appareil qui envoie l'événement.</param>
+        /// <param name="evenement">Le nom de l'événement.</param>
         public void Notifier(Appareil expediteur, string evenement)
         {
             if (evenement == "MouvEstDetecte")
