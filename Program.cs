@@ -3,8 +3,15 @@ using MediateurMaisonIntelligente.Mediateur;
 
 namespace MediateurMaisonIntelligente
 {
+    /// <summary>
+    /// 
+    /// </summary>
     internal class Program
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
             AmpouleIntelligente ampoule = new AmpouleIntelligente("123456789", "Lumière salon");

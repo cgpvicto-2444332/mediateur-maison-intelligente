@@ -5,12 +5,21 @@ using System.Text;
 
 namespace MediateurMaisonIntelligente.Mediateur
 {
+    /// <summary>
+    /// 
+    /// </summary>
     internal class MaisonIntelligente : IMediateurDomotique
     {
         private AmpouleIntelligente _ampoule;
         private DetecteurMouvement _detecteurMouvement;
         private CameraSecurite _cameraSecurite;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ampoule"></param>
+        /// <param name="detecteurMouvement"></param>
+        /// <param name="cameraSecurite"></param>
         public MaisonIntelligente(AmpouleIntelligente ampoule, DetecteurMouvement detecteurMouvement, CameraSecurite cameraSecurite)
         {
             this._ampoule = ampoule;
@@ -23,6 +32,11 @@ namespace MediateurMaisonIntelligente.Mediateur
             this._cameraSecurite.SetMediateur(this);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expediteur"></param>
+        /// <param name="evenement"></param>
         public void Notifier(Appareil expediteur, string evenement)
         {
             if (evenement == "MouvEstDetecte")
