@@ -4,14 +4,14 @@ using MediateurMaisonIntelligente.Mediateur;
 namespace MediateurMaisonIntelligente
 {
     /// <summary>
-    /// 
+    /// Simule la détection d'un mouvement dans la maison.
     /// </summary>
     internal class Program
     {
         /// <summary>
-        /// 
+        /// Crée les appareils et la maison, puis déclenche des événements.
         /// </summary>
-        /// <param name="args"></param>
+        /// <param name="args">Les arguments de la ligne de commande (non utilisés).</param>
         static void Main(string[] args)
         {
             AmpouleIntelligente ampoule = new AmpouleIntelligente("123456789", "Lumière salon");
