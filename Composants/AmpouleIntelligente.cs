@@ -29,8 +29,11 @@ namespace MediateurMaisonIntelligente.Composants
         /// </summary>
         public void Allumer()
         {
-            if (EstAllumee) 
+            if (EstAllumee)
+            {
+                Console.WriteLine("L'ampoule est déja allumée.");
                 return;
+            }
 
             EstAllumee = true;
             Console.WriteLine($"[{Nom}] s'allume.");
@@ -42,21 +45,26 @@ namespace MediateurMaisonIntelligente.Composants
         public void Eteindre()
         {
             if (!EstAllumee)
+            {
+                Console.WriteLine("L'ampoule est déjà éteinte.");
                 return;
+            }
 
             EstAllumee = false;
             Console.WriteLine($"[{Nom}] s'éteint.");
         }
 
         /// <summary>
-        /// Inverse l'état de l'ampoule.
+        /// Inverse l'état de l'ampoule et prévient le médiateur.
         /// </summary>
         public void BasculerEtat()
         {
-            if (EstAllumee) 
+            if (EstAllumee)
                 Eteindre();
-            else 
+            else
                 Allumer();
+
+            NotifierMediateur("AmpouleBasculee");
         }
     }
 }
