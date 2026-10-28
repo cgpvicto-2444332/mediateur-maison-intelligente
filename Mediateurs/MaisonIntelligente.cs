@@ -54,7 +54,7 @@ namespace MediateurMaisonIntelligente.Mediateur
                 }
                 else
                 {
-                    Console.WriteLine("Le médiateur reçoit le signal de l'ampoule et démarre l'enregistrement.");
+                    Console.WriteLine("Le médiateur reçoit le signal de l'ampoule et arrête l'enregistrement.");
                     _cameraSecurite.ArreterEnregistrement();
                 }
             }
