@@ -30,11 +30,30 @@ namespace MediateurMaisonIntelligente.Composants
         public void DetecterMouvement()
         {
             if (MouvementEstDetecte)
+            {
+                Console.WriteLine("Le détecteur de mouvement détecte déjà du mouvement. Aucun signal envoyé.");
                 return;
+            }
 
             MouvementEstDetecte = true;
             Console.WriteLine($"[{Nom}] détecte du mouvement.");
             NotifierMediateur("MouvEstDetecte");
+        }
+
+        /// <summary>
+        /// Cesse de détecter un mouvement et notifie le médiateur.
+        /// </summary>
+        public void DetectePlusMouvement()
+        {
+            if (!MouvementEstDetecte)
+            {
+                Console.WriteLine("Le détecteur de mouvement ne détecte déjà pas de mouvement. Aucun signal envoyé.");
+                return;
+            }
+
+            MouvementEstDetecte = false;
+            Console.WriteLine($"[{Nom}] ne détecte plus de mouvement.");
+            NotifierMediateur("MouvEstPlusDetecte");
         }
     }
 }

@@ -31,11 +31,28 @@ namespace MediateurMaisonIntelligente.Composants
         public void DemarrerEnregistrement()
         {
             if (EstEnEnregistrement)
+            {
+                Console.WriteLine("La caméra enregistre déjà.");
                 return;
+            }
 
             EstEnEnregistrement=true;
             Console.WriteLine($"[{Nom}] commence à enregistrer.");
         }
 
+        /// <summary>
+        /// Arrête l'enregistrement s'il est en cours.
+        /// </summary>
+        public void ArreterEnregistrement()
+        {
+            if (!EstEnEnregistrement)
+            {
+                Console.WriteLine("La caméra n'enregistre déjà pas.");
+                return;
+            }
+
+            EstEnEnregistrement = false;
+            Console.WriteLine($"[{Nom}] arrête d'enregistrer.");
+        }
     }
 }

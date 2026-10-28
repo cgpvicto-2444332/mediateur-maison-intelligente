@@ -45,6 +45,26 @@ namespace MediateurMaisonIntelligente.Mediateur
                 _ampoule.Allumer();
                 _cameraSecurite.DemarrerEnregistrement();
             }
+            else if (evenement == "AmpouleBasculee")
+            {
+                if (_ampoule.EstAllumee)
+                {
+                    Console.WriteLine("Le médiateur reçoit le signal de l'ampoule et démarre l'enregistrement.");
+                    _cameraSecurite.DemarrerEnregistrement();
+                }
+                else
+                {
+                    Console.WriteLine("Le médiateur reçoit le signal de l'ampoule et démarre l'enregistrement.");
+                    _cameraSecurite.ArreterEnregistrement();
+                }
+            }
+            else if (evenement == "MouvEstPlusDetecte")
+            {
+                Console.WriteLine("Le médiateur reçoit le signal du détecteur, éteint l'ampoule et arrête l'enregistrement.");
+                _ampoule.Eteindre();
+                _cameraSecurite.ArreterEnregistrement();
+
+            }
         }
     }
 }
